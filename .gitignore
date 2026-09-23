@@ -2,3 +2,6 @@ admin_auth.json
 orders.json
 cloudflared
 __pycache__/
+
+*_backup*.html
+*_backup*.py
