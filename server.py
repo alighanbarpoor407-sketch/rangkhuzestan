@@ -26,19 +26,28 @@ def check_password(password):
 
 if not os.path.exists(AUTH_FILE):
     print("=== ساخت رمز مدیریت ===")
-    while True:
-        p1 = getpass.getpass("رمز مدیریت: ")
-        p2 = getpass.getpass("تکرار رمز: ")
-        if len(p1) < 6:
-            print("حداقل ۶ کاراکتر.")
-        elif p1 != p2:
-            print("رمزها یکسان نیستند.")
-        else:
-            salt, h = make_hash(p1)
-            with open(AUTH_FILE, "w", encoding="utf-8") as f:
-                json.dump({"salt": salt, "hash": h}, f)
-            print("رمز ساخته شد.")
-            break
+    env_password = os.environ.get("ADMIN_PASSWORD")
+    if env_password:
+        if len(env_password) < 6:
+            raise ValueError("ADMIN_PASSWORD must be at least 6 characters")
+        salt, h = make_hash(env_password)
+        with open(AUTH_FILE, "w", encoding="utf-8") as f:
+            json.dump({"salt": salt, "hash": h}, f)
+        print("رمز مدیریت از Environment Variable ساخته شد.")
+    else:
+        while True:
+            p1 = getpass.getpass("رمز مدیریت: ")
+            p2 = getpass.getpass("تکرار رمز: ")
+            if len(p1) < 6:
+                print("حداقل ۶ کاراکتر.")
+            elif p1 != p2:
+                print("رمزها یکسان نیستند.")
+            else:
+                salt, h = make_hash(p1)
+                with open(AUTH_FILE, "w", encoding="utf-8") as f:
+                    json.dump({"salt": salt, "hash": h}, f)
+                print("رمز ساخته شد.")
+                break
 
 if not os.path.exists(ORDERS_FILE):
     with open(ORDERS_FILE, "w", encoding="utf-8") as f:
