@@ -282,7 +282,7 @@ print("سایت:   http://0.0.0.0:8080")
 print("مدیریت: http://0.0.0.0:8080/admin")
 print("================================")
 
-server=ThreadingHTTPServer(("0.0.0.0",8080),Handler)
+server=ThreadingHTTPServer(("0.0.0.0", int(os.environ.get("PORT", 8080))),Handler)
 
 try:
     server.serve_forever()
