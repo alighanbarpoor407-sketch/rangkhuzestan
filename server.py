@@ -203,6 +203,16 @@ class Handler(BaseHTTPRequestHandler):
                 self.send(200,f.read())
             return
 
+        if p=="/robots.txt":
+            with open(os.path.join(BASE,"robots.txt"),encoding="utf-8") as f:
+                self.send(200,f.read(),"text/plain; charset=utf-8")
+            return
+
+        if p=="/sitemap.xml":
+            with open(os.path.join(BASE,"sitemap.xml"),encoding="utf-8") as f:
+                self.send(200,f.read(),"application/xml; charset=utf-8")
+            return
+
         if p=="/admin":
             self.send(200,ADMIN if self.auth() else LOGIN)
             return
