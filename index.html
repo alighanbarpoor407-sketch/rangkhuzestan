@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="رنگ خوزستان؛ سفارش و خرید انواع رنگ در خوزستان. ثبت سفارش آنلاین رنگ و دریافت اطلاعات سفارش.">
+<meta name="keywords" content="رنگ خوزستان, خرید رنگ خوزستان, سفارش رنگ, رنگ اهواز, فروش رنگ اهواز, انواع رنگ">
+<meta name="robots" content="index, follow">
+<meta name="author" content="رنگ خوزستان">
+
+<title>رنگ خوزستان | سفارش و خرید رنگ در خوزستان</title>
+
+<meta property="og:title" content="رنگ خوزستان | سفارش و خرید رنگ در خوزستان">
+<meta property="og:description" content="سفارش و خرید انواع رنگ در خوزستان؛ ثبت سفارش آنلاین و دریافت اطلاعات سفارش.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fa_IR">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;background:#f5f7fa;color:#222}
+header{background:linear-gradient(135deg,#166534,#22c55e);color:white;text-align:center;padding:30px 15px}
+header h1{margin:0 0 10px;font-size:30px}
+header p{margin:0;font-size:15px}
+.container{max-width:700px;margin:25px auto;padding:0 15px}
+.card{background:white;border-radius:16px;padding:25px;box-shadow:0 5px 20px #00000012}
+h2{margin-top:0;color:#166534}
+.info{background:#f0fdf4;border-right:4px solid #22c55e;padding:15px;border-radius:8px;line-height:2;margin-bottom:20px}
+label{display:block;font-weight:bold;margin:15px 0 7px}
+input,select,textarea{width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-family:inherit;font-size:15px}
+textarea{min-height:100px;resize:vertical}
+.radio{display:flex;gap:20px;flex-wrap:wrap}
+.radio label{font-weight:normal;margin:5px 0}
+.radio input{width:auto}
+button{width:100%;padding:14px;border:0;border-radius:9px;background:#16a34a;color:white;font-family:inherit;font-size:16px;font-weight:bold;cursor:pointer;margin-top:20px}
+button:hover{background:#15803d}
+.success{display:none;background:#ecfdf5;color:#166534;border:1px solid #86efac;padding:16px;border-radius:10px;margin-top:20px;line-height:2}
+footer{text-align:center;padding:25px;color:#777}
+.small{font-size:12px;color:#777}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>🎨 رنگ خوزستان</h1>
+<p>سفارش انواع رنگ ساختمانی و صنعتی در سراسر خوزستان</p>
+</header>
+
+<div class="container">
+<div class="card">
+
+<h2>ثبت درخواست سفارش</h2>
+
+<div class="info">
+<strong>نحوه سفارش:</strong><br>
+قیمت محصولات در سایت درج نمی‌شود. پس از ثبت درخواست، هزینه تهیه محصول در اهواز بررسی می‌شود و قیمت نهایی با شما هماهنگ خواهد شد.<br>
+پرداخت هنگام تحویل انجام می‌شود.
+</div>
+
+<form id="orderForm">
+
+<label>نام و نام خانوادگی *</label>
+<input id="name" required>
+
+<label>شماره تماس *</label>
+<input id="phone" type="tel" required>
+
+<label>شهر *</label>
+<select id="city" required>
+<option value="">انتخاب شهر</option>
+<option>اهواز</option>
+<option>آبادان</option>
+<option>خرمشهر</option>
+<option>دزفول</option>
+<option>شوشتر</option>
+<option>ماهشهر</option>
+<option>اندیمشک</option>
+<option>شوش</option>
+<option>بهبهان</option>
+<option>ایذه</option>
+<option>مسجدسلیمان</option>
+<option>رامهرمز</option>
+<option>شادگان</option>
+<option>بندر امام خمینی</option>
+<option>سوسنگرد</option>
+<option>هندیجان</option>
+<option>لالی</option>
+<option>هفتکل</option>
+<option>حمیدیه</option>
+<option>باوی</option>
+</select>
+
+<label>نوع محصول *</label>
+<select id="product" required>
+<option value="">انتخاب کنید</option>
+<option>رنگ ساختمانی</option>
+<option>رنگ صنعتی</option>
+<option>رنگ نما</option>
+<option>رنگ چوب</option>
+<option>رنگ فلز</option>
+<option>عایق و پوشش</option>
+<option>سایر</option>
+</select>
+
+<label>مقدار مورد نیاز *</label>
+<input id="quantity" placeholder="مثلاً 20 کیلو، 4 سطل، 10 لیتر" required>
+
+<label>برند موردنظر</label>
+<input id="brand" placeholder="در صورت داشتن برند خاص">
+
+<label>توضیحات</label>
+<textarea id="description" placeholder="رنگ، کد رنگ، نوع بسته‌بندی یا هر توضیح دیگری..."></textarea>
+
+<label>روش تحویل *</label>
+<div class="radio">
+<label><input type="radio" name="delivery" value="تحویل حضوری در اهواز" checked> تحویل حضوری در اهواز</label>
+<label><input type="radio" name="delivery" value="ارسال به شهر مشتری"> ارسال به شهر مشتری</label>
+</div>
+
+<div id="addressBox" class="hidden">
+<label>آدرس تحویل</label>
+<textarea id="address" placeholder="آدرس کامل برای ارسال"></textarea>
+<p class="small">هزینه ارسال جداگانه محاسبه می‌شود.</p>
+</div>
+
+<button type="submit">ثبت درخواست سفارش</button>
+
+<div id="success" class="success"></div>
+
+</form>
+</div>
+</div>
+
+<footer>
+© رنگ خوزستان
+</footer>
+
+<script>
+const form = document.getElementById('orderForm');
+const deliveryInputs = document.querySelectorAll('input[name="delivery"]');
+const addressBox = document.getElementById('addressBox');
+const address = document.getElementById('address');
+const success = document.getElementById('success');
+
+deliveryInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    const shipping = document.querySelector('input[name="delivery"]:checked').value === 'ارسال به شهر مشتری';
+    addressBox.classList.toggle('hidden', !shipping);
+    address.required = shipping;
+  });
+});
+
+form.addEventListener('submit', async function(event) {
+  event.preventDefault();
+
+  const order = {
+    name: document.getElementById('name').value.trim(),
+    phone: document.getElementById('phone').value.trim(),
+    city: document.getElementById('city').value,
+    product: document.getElementById('product').value,
+    quantity: document.getElementById('quantity').value.trim(),
+    brand: document.getElementById('brand').value.trim(),
+    description: document.getElementById('description').value.trim(),
+    delivery: document.querySelector('input[name="delivery"]:checked').value,
+    address: address.value.trim()
+  };
+
+  try {
+    const response = await fetch('/api/orders', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(order)
+    });
+
+    const result = await response.json();
+
+    if (!response.ok || !result.ok) {
+      throw new Error(result.error || 'ثبت سفارش ناموفق بود');
+    }
+
+    success.innerHTML =
+      '<strong>سفارش شما با موفقیت ثبت شد ✅</strong><br>' +
+      'شماره سفارش: <b>' + result.id + '</b><br>' +
+      'پس از بررسی هزینه تهیه محصول، برای هماهنگی قیمت نهایی با شما تماس می‌گیریم.';
+
+    success.style.display = 'block';
+    form.reset();
+    addressBox.classList.add('hidden');
+    address.required = false;
+    success.scrollIntoView({behavior:'smooth'});
+
+  } catch (error) {
+    alert('خطا در ثبت سفارش: ' + error.message);
+  }
+});
+</script>
+
+</body>
+</html>
