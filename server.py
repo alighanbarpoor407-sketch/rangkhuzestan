@@ -195,6 +195,8 @@ class Handler(BaseHTTPRequestHandler):
                 return x.strip().split("=",1)[1] in sessions
         return False
 
+    def do_HEAD(self):
+        self.do_GET()
     def do_GET(self):
         p=urlparse(self.path).path
 
