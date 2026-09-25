@@ -24,6 +24,8 @@ def check_password(password):
     h = hashlib.pbkdf2_hmac("sha256", password.encode(), salt, 200000)
     return secrets.compare_digest(base64.b64encode(h).decode(), a["hash"])
 
+print("ADMIN_PASSWORD:", "SET" if os.environ.get("ADMIN_PASSWORD") else "NOT_SET")
+
 if not os.path.exists(AUTH_FILE):
     env_password = os.environ.get("ADMIN_PASSWORD")
     if not env_password:
