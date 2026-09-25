@@ -36,7 +36,7 @@ if not os.path.exists(AUTH_FILE):
     salt, h = make_hash(env_password)
 
     with open(AUTH_FILE, "w", encoding="utf-8") as f:
-        json.dump({"salt": salt, "hash": h})
+        json.dump({"salt": salt, "hash": h}, f)
 
     print("رمز مدیریت از Environment Variable ساخته شد.")
 
