@@ -255,7 +255,14 @@ class Handler(BaseHTTPRequestHandler):
             try:
                 o=json.loads(raw.decode())
                 a=orders()
-                o["id"]=str(len(a)+1).zfill(4)
+                used = []
+                for item in a:
+                    try:
+                        used.append(int(str(item.get("id","")).strip()))
+                    except:
+                        pass
+                next_id = max(used, default=0) + 1
+                o["id"] = str(next_id).zfill(4)
                 o["status"]="جدید"
                 o["procurement_cost"]=""
                 o["shipping_cost"]=""
