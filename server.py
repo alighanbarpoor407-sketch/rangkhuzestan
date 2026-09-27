@@ -43,14 +43,22 @@ if not os.path.exists(AUTH_FILE):
 
 def orders():
     try:
-        with open(ORDERS_FILE, encoding="utf-8") as f:
-            return json.load(f)
-    except:
+        if not os.path.exists(ORDERS_FILE):
+            return []
+        with open(ORDERS_FILE, "r", encoding="utf-8") as f:
+            data = json.load(f)
+            return data if isinstance(data, list) else []
+    except Exception as ex:
+        print("ORDERS READ ERROR:", ex)
         return []
 
 def save(data):
-    with open(ORDERS_FILE, "w", encoding="utf-8") as f:
+    tmp = ORDERS_FILE + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, ORDERS_FILE)
 
 LOGIN = """<!doctype html>
 <html lang="fa" dir="rtl">
@@ -117,7 +125,7 @@ box.innerHTML=a.map(o=>`
 <div class="order">
 <h3>📦 سفارش ${e(o.id)}</h3>
 <div class="info">
-<b>زمان:</b> ${e(o.time)}<br>
+<b>زمان:</b> ${e(o.time||'ثبت شده')}<br>
 <b>نام:</b> ${e(o.name)}<br>
 <b>تلفن:</b> ${e(o.phone)}<br>
 <b>شهر:</b> ${e(o.city)}<br>
